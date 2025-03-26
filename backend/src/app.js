@@ -18,8 +18,13 @@ app.use(cookieParser())
 
 
 //import routes
+import userRoutes from './routes/user.routes.js'
+import collectionRoutes from './routes/collection.routes.js'
+import todoRoutes from './routes/todo.routes.js'
 
 //use routes
-
+app.use('/api/user', userRoutes)
+app.use('/api/c', collectionRoutes)
+app.use('/api/t',todoRoutes)
 
 export default app

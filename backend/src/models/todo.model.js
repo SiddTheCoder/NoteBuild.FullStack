@@ -4,12 +4,21 @@ const todoSchema = new Schema({
   title: {
     type: String,
     required: true,
-    maxLenght: 150,
+    maxLength: 150,
     minLenght: 3,
+  },
+  description: {
+    type: String,
+    default: 'Description',
+    maxLength : 500
   },
   isChecked: {
     type: Boolean,
     default : false
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref : 'Collection'
   }
 }, {timestamps: true})
 

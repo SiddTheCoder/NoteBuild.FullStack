@@ -43,17 +43,18 @@ const userSchema = new Schema({
 }, { timestamps: true })
 
 //bcrypt password just before saving the userSchema
-userSchema.pre('save', async (next) => {
-  if (!this.isModified(password)) {
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) {
     return next()
   }
   this.password = await bcrypt.hash(this.password, 10)
   next()
 })
 
+
 //creating new method to compare password using bcrypt
-userSchema.methods.isPasswordCorrect = async (password) => {
-  return await bcrypt.compare(password,this.password)
+userSchema.methods.isPasswordCorrect = async function(password){
+    return await bcrypt.compare(password, this.password)
 }
 
 // generate access token

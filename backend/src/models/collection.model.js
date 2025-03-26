@@ -4,11 +4,11 @@ const collectionSchema = new Schema({
   name: {
     type: String,
     required: true,
-    maxLength: 20,
+    maxLength: 40,
     minLenght: 3,
     unique: true,
   },
-  private: {
+  isPrivate: {
     type: Boolean,
     default : false
   },
@@ -16,7 +16,11 @@ const collectionSchema = new Schema({
     type: String,
     required : true
   },
-  subTodo: [
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref : 'User'
+  },
+  subTodos: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref : 'Todo'
