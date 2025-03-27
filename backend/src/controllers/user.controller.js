@@ -35,28 +35,28 @@ const registerUser = asyncHandler(async (req, res) => {
   })
 
   if (existedUser?.length > 0) {
-    throw new ApiError(400, 'User with Such Username or Email already Exist')
+    throw new ApiError(400, 'username or email already taken')
   }
 
   const avatarLocalPath = req.file?.path
 
-  console.log(avatarLocalPath)
-  if (!avatarLocalPath) {
-    throw new ApiError(400, 'Avatar is Required')
-  }
+  
+  // if (!avatarLocalPath) {
+  //   throw new ApiError(400, 'Avatar is Required')
+  // }
 
   const avatar = await uploadOnCloudinary(avatarLocalPath)
 
-  if (!avatar) {
-    throw new ApiError(500,'Error occured while uploading on cloudinary')
-  }
+  // if (!avatar) {
+  //   throw new ApiError(500,'Error occured while uploading on cloudinary')
+  // }
 
   const user = await User.create({
     username: username?.toLowerCase(),
     fullName: fullName,
     email: email?.toLowerCase(),
     password,
-    avatar : avatar?.url
+    avatar : avatar?.url || null
   })
 
   const createdUser = await User.findById(user?._id).select('-password -refrehToken')
@@ -64,6 +64,8 @@ const registerUser = asyncHandler(async (req, res) => {
   if (!createdUser) {
     throw new ApiError(500, 'Error occured while registering the user')
   }
+
+  
 
   return res
     .status(200)
