@@ -1,9 +1,11 @@
 import React from 'react'
+import Collection from '../components/Collection';
+
 
 function Dashboard() {
   return (
     <div>
-      Dashboard
+    <Collection />
     </div>
   )
 }

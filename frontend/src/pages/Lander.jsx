@@ -15,12 +15,12 @@ function Lander() {
         </h1>
 
         <div className="flex justify-center items-center mt-10 gap-4 min-h-96 bg-slate-900 bg-opacity-70 w-[80%] mx-auto rounded-lg p-5">
-          <button className="bg-blue-500 text-white text-2xl px-8 py-3 rounded-md cursor-pointer hover:bg-blue-600 transition-all duration-300">
-            <Link to='/user/register'>Register</Link>
-          </button>
-          <button className="bg-blue-500 text-white text-2xl px-8 py-3 rounded-md cursor-pointer hover:bg-blue-600 transition-all duration-300">
-            <Link to='/user/login'>Login</Link>
-          </button>
+          <Link to='/user/register'><button className="bg-blue-500 text-white text-2xl px-8 py-3 rounded-md cursor-pointer hover:bg-blue-600 transition-all duration-300">
+            Register
+          </button></Link>
+          <Link to='/user/login'><button className="bg-blue-500 text-white text-2xl px-8 py-3 rounded-md cursor-pointer hover:bg-blue-600 transition-all duration-300">
+            Login
+          </button></Link>
         </div>
 
         <div className="text-center text-gray-400 text-sm mt-4">

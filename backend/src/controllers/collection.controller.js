@@ -50,6 +50,11 @@ const getUserCollections = asyncHandler(async (req, res) => {
     throw new ApiError(400,'User ID is required')
   }
 
+  const userExist = await User.findById(userId)
+  if (!userExist) {
+    throw new ApiError(404,'No User Found with Such Id')
+  }
+
   const user = await User.findById(userId).populate({
     path: 'collections',
     select: '-owner',

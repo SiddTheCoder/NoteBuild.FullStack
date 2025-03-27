@@ -1,5 +1,4 @@
 import React,{useContext, useEffect, useState} from 'react'
-import { BaseBg } from '../constants'
 import welcomeBack from '../assets/GIFs/welcomeBack.gif'
 import { Link } from 'react-router-dom'
 import PageTransitor from '../components/PageTransitor'
@@ -39,6 +38,7 @@ function Login() {
       setData(response.data.data.user);
       if (response.statusText == 'OK' || response.status == 200 || response.status == 201) {
         setTransitor(true)
+        localStorage.setItem('user', JSON.stringify(response.data.data.user))
         login(response.data.data.user)
       }
     } catch (error) {
