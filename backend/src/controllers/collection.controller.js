@@ -1,12 +1,14 @@
 import { ApiResponse } from '../utils/ApiResponse.js'
 import { ApiError } from '../utils/ApiError.js'
 import { uploadOnCloudinary } from '../utils/Cloudinary.js'
-import { Collection } from '../models/collection.model.js'
+import  Collection  from '../models/collection.model.js'
 import { asyncHandler } from '../utils/asyncHandler.js'
 import { User } from '../models/user.model.js'
 
 
 const uploadCollection = asyncHandler(async (req, res) => {
+  const { userId } = req.params
+  
   const { name, isPrivate } = req.body
   if (!name) throw new ApiError(400, 'Collection Name is required')
   
@@ -31,8 +33,11 @@ const uploadCollection = asyncHandler(async (req, res) => {
 
   // creating user for updating collection state in user data
   const user = await User.findById(req.user?._id)
-  user.collections.push(collection?._id)
-  await user.save()
+  if (!user) {
+    throw new ApiError(404,'User Didnt Found')
+  }
+  user?.collections.push(collection?._id)
+  await user?.save()
 
   return res
     .status(200)

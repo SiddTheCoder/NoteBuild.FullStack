@@ -6,7 +6,6 @@ const collectionSchema = new Schema({
     required: true,
     maxLength: 40,
     minLenght: 3,
-    unique: true,
   },
   isPrivate: {
     type: Boolean,
@@ -29,4 +28,11 @@ const collectionSchema = new Schema({
 
 },{timestamps:true})
 
-export const Collection = mongoose.model('Collection',collectionSchema)
+const Collection = mongoose.model('Collection', collectionSchema);
+
+// Remove the unique index on the `name` field, if it exists
+Collection.collection.dropIndex('name_1', (err, result) => {
+
+});
+
+export default Collection;

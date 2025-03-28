@@ -38,7 +38,6 @@ function Login() {
       setData(response.data.data.user);
       if (response.statusText == 'OK' || response.status == 200 || response.status == 201) {
         setTransitor(true)
-        localStorage.setItem('user', JSON.stringify(response.data.data.user))
         login(response.data.data.user)
       }
     } catch (error) {

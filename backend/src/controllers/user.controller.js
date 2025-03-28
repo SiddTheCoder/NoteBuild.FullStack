@@ -65,13 +65,24 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(500, 'Error occured while registering the user')
   }
 
-  
+  const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id)
+
+  const loggedInUser = await User.findById(createdUser?._id).select('-password -refreshToken')
+
+  // cookie settings
+    const options = {
+        httpOnly : true,
+      secure: true,
+      sameSite: "Strict"
+  }
 
   return res
     .status(200)
+    .cookie('refreshToken', refreshToken, options)
+    .cookie('accessToken', accessToken, options)
     .json(new ApiResponse(
       200,
-      createdUser,
+      loggedInUser,
       'User Registered Successfully'
   ))
 
@@ -105,7 +116,8 @@ const loginUser = asyncHandler(async (req, res) => {
   // cookie settings
     const options = {
         httpOnly : true,
-        secure : true,
+      secure: true,
+         sameSite: "Strict"
   }
   
   return res

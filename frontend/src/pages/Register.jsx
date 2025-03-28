@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import RegisterHelloGif from '../assets/GIFs/registering-hello.gif';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PageTransitor from '../components/PageTransitor';
 import SamplePhoto from '../assets/Sidd.jpg';
 import '../custom.css'
+import UserContext from '../context/UserContext';
 
 
 function Register() {
+
+  const { setUser }=  useContext(UserContext)
+
   const [transitor, setTransitor] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
@@ -29,6 +33,7 @@ function Register() {
       setData(response.data.data);
       if (response.statusText == 'OK' || response.status == 200 || response.status == 201) {
         setTransitor(true)
+        setUser(response.data.data)
       }
     } catch (error) {
       if (error.response) {

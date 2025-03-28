@@ -2,7 +2,7 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from '../utils/asyncHandler.js'
 import { Todo } from '../models/todo.model.js'
-import { Collection } from "../models/collection.model.js";
+import Collection  from "../models/collection.model.js";
 
 const uploadTodo = asyncHandler(async (req, res) => {
 
