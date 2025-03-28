@@ -7,27 +7,27 @@ import { User } from '../models/user.model.js'
 
 
 const uploadCollection = asyncHandler(async (req, res) => {
-  const { userId } = req.params
+ 
   
   const { name, isPrivate } = req.body
   if (!name) throw new ApiError(400, 'Collection Name is required')
   
-  const collectionCoverImageLocalPath = req.file?.path
+  const collectionCoverImageLocalPath = req.file?.path 
 
-  if (!collectionCoverImageLocalPath) {
-    throw new ApiError(401,'Error while loading image by multer')
-  }
+  // if (!collectionCoverImageLocalPath) {
+  //   throw new ApiError(401,'Error while loading image by multer')
+  // }
 
   const collectionCoverImage = await uploadOnCloudinary(collectionCoverImageLocalPath)
 
-  if (!collectionCoverImage) {
-    throw new ApiError(500,'Error while uploading on Cloudinary')
-  }
+  // if (!collectionCoverImage) {
+  //   throw new ApiError(500,'Error while uploading on Cloudinary')
+  // }
 
   const collection = await Collection.create({
     name: name,
     isPrivate : isPrivate || false,
-    collectionCoverImage: collectionCoverImage?.url,
+    collectionCoverImage: collectionCoverImage?.url || null ,
     owner : req.user?._id
   })
 

@@ -12,8 +12,7 @@ const collectionSchema = new Schema({
     default : false
   },
   collectionCoverImage: {
-    type: String,
-    required : true
+    type: String
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
