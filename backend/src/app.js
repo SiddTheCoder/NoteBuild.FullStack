@@ -21,10 +21,20 @@ app.use(cookieParser())
 import userRoutes from './routes/user.routes.js'
 import collectionRoutes from './routes/collection.routes.js'
 import todoRoutes from './routes/todo.routes.js'
+import authVerify from './routes/auth.routes.js'
 
 //use routes
 app.use('/api/user', userRoutes)
 app.use('/api/c', collectionRoutes)
-app.use('/api/t',todoRoutes)
+app.use('/api/t', todoRoutes)
+
+app.use('/api/auth', authVerify)
+
+
+// //secured-routing endpoints for frontend
+// app.get('/api/auth/verify', verifyJWT, (req, res) => {
+//   // If the user reaches here, their token is valid
+//   res.status(200).send('Authenticated');
+// });
 
 export default app

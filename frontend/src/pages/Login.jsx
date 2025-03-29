@@ -10,7 +10,6 @@ function Login() {
 
   const { login , user } = useContext(UserContext)
   
-
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState(null)
   const [data, setData] = useState(null)
@@ -32,9 +31,9 @@ function Login() {
   const loginUser = async (userCredentials) => {
     try {
       setLoading(true);
-      console.log('Sending Request:', userCredentials);
-      const response = await axios.post('/api/user/login-user', userCredentials);
-      console.log('Response received:', response);
+      console.log('Sending Login Request:', userCredentials);
+      const response = await axios.post('http://localhost:8000/api/user/login-user', userCredentials, {withCredentials : true});
+      console.log('Login Response received:', response);
       setData(response.data.data.user);
       if (response.statusText == 'OK' || response.status == 200 || response.status == 201) {
         setTransitor(true)
@@ -53,10 +52,7 @@ function Login() {
     await loginUser(userCredentials)
   }
 
-  useEffect(() => {
-    console.log('DATA', data)
-    console.log('Consolin context User',user)
-  }, [data])
+ 
 
   return (
     <div className={`max-w-[100%] sm:w-4xl lg:w-7xl min-w-[50%] mx-auto h-[85vh] bg-purple-800 rounded-md flex`}>
