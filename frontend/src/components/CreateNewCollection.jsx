@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import GuestDefaultImg from '../assets/Guest-Default.jpg'
 
+
 function CreateNewCollection({ onClose , addNewCollection }) { // Accept onClose prop from parent
   const [collectionTitle, setCollectionTitle] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [fileName, setFileName] = useState("Upload Cover Image");
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+
 
 
   const handleImageChange = (e) => {
@@ -46,10 +48,17 @@ function CreateNewCollection({ onClose , addNewCollection }) { // Accept onClose
   }
 };
 
+  const deleteCollection = async (collectionId) => {
+    try {
+      
+    } catch (err) {
+      
+    }
+  }
 
   return (
     <>
-      <div className="z-50 w-[100%] sm:h-[500px] sm:w-[700px] bg-linear-to-r bg-purple-400 rounded absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 shadow-amber-50 shadow-xl">
+      <div className="z-50 w-[100%] sm:h-[500px] sm:w-[700px] bg-linear-to-r bg-[#1F1D36] rounded absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 shadow-amber-50 shadow-xl">
         <form onSubmit={handleSubmit} method="post" encType="multipart/form-data" className="flex flex-col">
           <div className="flex justify-between items-center">
             <input

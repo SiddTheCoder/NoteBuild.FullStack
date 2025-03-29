@@ -40,10 +40,9 @@ function Login() {
         setTransitor(true)
         login(response.data.data.user)
       }
-    } catch (error) {
-      if (error.response) {
-        setMessage(error.response.message)
-      }
+    } catch (error) { 
+      console.log(error.response.data.message)
+      setMessage(error.response.data.message)
     } finally {
       setLoading(false);
     }
@@ -119,6 +118,8 @@ function Login() {
                     {message && <div className='text-red-500'>{message}</div>}
                   </div>
         
+          
+          
                   <div className="w-full flex justify-center mt-1">
                     <button
                       type="submit"
