@@ -85,7 +85,7 @@ function CreateNewCollection({ onClose , addNewCollection }) { // Accept onClose
           <div className="flex h-[350px] w-full justify-between items-center mt-1">
             {imagePreview ? (
               <div className="w-[80%] h-[100%] object-contain overflow-hidden mx-auto">
-                <img src={imagePreview} className="mt-10 rounded-md" alt="Preview" />
+                <img src={imagePreview} className="mt-10 rounded-md h-full w-full object-cover hover:scale-[1.2] hover:-rotate-4 transition-all duration-500 ease-in-out" alt="Preview" />
               </div>
             ) : (
               <div className="w-[65%] h-[100%] bg-gray-700 rounded animate-pulse mt-5 mx-auto"></div>

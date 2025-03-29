@@ -38,13 +38,13 @@ function Header() {
   
 
   return (
-    <header className='h-12 bg-purple-600 flex justify-between items-center pl-10 px-2 rounded-tl-4xl'>
+    <header className='h-12 bg-purple-600/30 flex justify-between items-center pl-10 px-2'>
       <div className='flex gap-1 items-center justify-center cursor-pointer hover:bg-purple-950/50 py-1 px-4 rounded '>Search <Search className='relative top-[0.5px] hover:animate-bounce' size={20} strokeWidth={1.75} absoluteStrokeWidth /></div>
 
       <div className='flex justify-around items-center gap-2'>
         <div><Settings className='hover:animate-spin cursor-pointer hover:scale-[1.2] transition-all duration-150 ease-in' /></div>
 
-        <div className='flex justify-between items-center gap-2 pr-2 cursor-pointer bg-purple-500/90 hover:bg-purple-400 py-1 px-3 rounded transition-all duration-100 ease-in'>
+        <div className='flex justify-between items-center gap-2 pr-2 cursor-pointer bg-purple-600/30 hover:bg-purple-600 py-1 px-3 rounded transition-all duration-100 ease-in'>
           <div className='flex flex-col items-center justify-center h-6 text-sm'>
             <span className='text-sm'>{currentUser?.fullName}</span>
           </div>

@@ -10,7 +10,7 @@ function Dashboard() {
         <div className='h-[100%] w-auto '><SideBar /></div>
 
         <div className='h-[100%] flex flex-col w-full'> 
-          <div className='h-12 bg-purple-600'><Header /></div>
+          <div className='h-12'><Header /></div>
           <div className='flex-1 overflow-hidden'> 
             <Collection />
           </div>
