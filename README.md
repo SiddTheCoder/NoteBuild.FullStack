@@ -3,6 +3,7 @@
 ## 🌟 Key Features
 
 ### 🔐 Authentication & Security
+
 - Secure user registration and login system
 - JWT-based authentication with access and refresh tokens
 - Password hashing and encryption
@@ -10,6 +11,7 @@
 - HTTP-only cookies for enhanced security
 
 ### 👤 User Management
+
 - Custom user profiles
 - Profile picture upload with Cloudinary integration
 - Username and email uniqueness validation
@@ -17,6 +19,7 @@
 - User session management
 
 ### 📋 Note Management
+
 - Create, read, update, and delete notes
 - Rich text editing capabilities
 - Note categorization and organization
@@ -24,6 +27,7 @@
 - Real-time updates
 
 ### 💎 Technical Features
+
 - RESTful API architecture
 - MongoDB database integration
 - Cloudinary media storage
@@ -34,6 +38,7 @@
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 ```javascript
 {
   "dependencies": {
@@ -47,6 +52,7 @@
 ```
 
 ### Backend
+
 ```javascript
 {
   "dependencies": {
@@ -61,7 +67,7 @@
 
 ## 📁 Project Structure
 
-```
+````
 
 ## 🚀 Getting Started
 
@@ -77,9 +83,10 @@
 ```bash
 git clone <repository-url>
 cd NoteBuild
-```
+````
 
 2. **Frontend Setup**
+
 ```bash
 cd frontend
 npm install
@@ -87,13 +94,15 @@ npm run dev
 ```
 
 3. **Backend Setup**
+
 ```bash
 cd backend
 npm install
 ```
 
 4. **Environment Configuration**
-Create `.env` file in backend:
+   Create `.env` file in backend:
+
 ```env
 PORT=8000
 MONGODB_URI=your_mongodb_uri
@@ -105,6 +114,7 @@ REFRESH_TOKEN_SECRET=your_refresh_token
 ```
 
 5. **Start Backend**
+
 ```bash
 npm run dev
 ```
@@ -112,6 +122,7 @@ npm run dev
 ## 🔗 API Endpoints
 
 ### Authentication
+
 ```
 POST /api/users/register - Register new user
 POST /api/users/login - User login
@@ -120,6 +131,7 @@ GET /api/users/current-user - Get current user
 ```
 
 ### Notes
+
 ```
 GET /api/notes - Get all notes
 POST /api/notes - Create note
@@ -174,4 +186,5 @@ This project is licensed under the MIT License.
 - Contact maintainers for other queries
 
 ---
-Made with ❤️ by [Your Name]
+
+Made with ❤️ by [SiddTheCoder]
